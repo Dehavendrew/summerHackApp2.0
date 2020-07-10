@@ -1,14 +1,230 @@
-<!doctype html>
-<html lang='en'>
+<html lang="en">
+<title>MyScheduling 2.0</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+<body>
 
-<title>
-  My Scheduling
-</title>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-purple w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+        <h3 class="w3-padding-64"><b>Accenture<br>MyScheduling 2.0</b></h3>
+    </div>
+    <div class="w3-bar-block">
+        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+        <a href="#profile" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My Profile</a>
+        <a href="#search" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search for Roles</a>
+        <a href="#saved" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Saved Roles</a>
+        <a href="#help" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Help</a>
+    </div>
+</nav>
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-purple w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-purple w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Company Name</span>
+</header>
 
-<h1 style="background-color: purple; color: white">
-  Here is our first homepage! Test
-</h1>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
 
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+        <h1 class="w3-jumbo"><b>Accenture</b></h1>
+        <h1 class="w3-xxxlarge w3-text-purple"><b>MyScheduling 2.0</b></h1>
+        <hr style="width:50px;border:5px solid purple" class="w3-round">
+    </div>
 
+    <!-- Photo grid (modal) -->
+    <div class="w3-row-padding">
+        <div class="w3-full">
+            <img src="../../media/map.png" style="width:100%" onclick="onClick(this)" alt="map">
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption"></p>
+        </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="w3-container" id="profile" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-purple"><b>My Profile</b></h1>
+        <hr style="width:50px;border:5px solid purple" class="w3-round">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="card">
+            <img src="../../media/doggo.jpg" alt="Jack Johnson" style="width:100%">
+            <h1>John Doe</h1>
+            <p class="title">Technology Consulting Manager</p>
+            <p>Innovation, Software Engineering</p>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="w3-container" id="search" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-purple"><b>Search for Roles</b></h1>
+        <hr style="width:50px;border:5px solid purple" class="w3-round">
+        <p>Enter your initial search criteria</p>
+        <form>
+            <label for="location">Choose a location:</label>
+            <select name="location" id="location">
+                <option value="chicago">Chicago</option>
+                <option value="miami">Miami</option>
+                <option value="newyorkcity">New York City</option>
+                <option value="dallas">Dallas</option>
+            </select>
+            <label for="date">Choose a start date:</label>
+            <select name="date" id="date">
+                <option value="asap">ASAP</option>
+                <option value="twoweeks">Within 2 weeks</option>
+                <option value="month">Within a month</option>
+                <option value="monthplus">Beyond one month</option>
+            </select>
+            <label for="industry">Choose an industry:</label>
+            <select name="industry" id="industry">
+                <option value="education">Education</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="cgs">Consumer Goods & Services</option>
+                <option value="utilities">Utilities</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+<!--    &lt;!&ndash; The Team &ndash;&gt;-->
+<!--    <div class="w3-row-padding w3-grayscale">-->
+<!--        <div class="w3-col m4 w3-margin-bottom">-->
+<!--            <div class="w3-light-grey">-->
+<!--                <img src="/w3images/team2.jpg" alt="John" style="width:100%">-->
+<!--                <div class="w3-container">-->
+<!--                    <h3>John Doe</h3>-->
+<!--                    <p class="w3-opacity">CEO & Founder</p>-->
+<!--                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="w3-col m4 w3-margin-bottom">-->
+<!--            <div class="w3-light-grey">-->
+<!--                <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">-->
+<!--                <div class="w3-container">-->
+<!--                    <h3>Jane Doe</h3>-->
+<!--                    <p class="w3-opacity">Designer</p>-->
+<!--                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="w3-col m4 w3-margin-bottom">-->
+<!--            <div class="w3-light-grey">-->
+<!--                <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">-->
+<!--                <div class="w3-container">-->
+<!--                    <h3>Mike Ross</h3>-->
+<!--                    <p class="w3-opacity">Architect</p>-->
+<!--                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- Packages / Pricing Tables -->
+    <div class="w3-container" id="saved" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-purple"><b>Saved Roles</b></h1>
+        <hr style="width:50px;border:5px solid purple" class="w3-round">
+        <p>Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-half w3-margin-bottom">
+            <ul class="w3-ul w3-light-grey w3-center">
+                <li class="w3-dark-grey w3-xlarge w3-padding-32">Matches</li>
+                <li class="w3-padding-16">Lead Developer, Abbott Health, Minneapolis MN</li>
+                <li class="w3-padding-16">Lead Developer, Johnson & Johnson, Philly PA</li>
+                <li class="w3-padding-16">Engineering Manager, United Airlines, Chicago IL</li>
+                <li class="w3-light-grey w3-padding-24">
+                    <button class="w3-button w3-white w3-padding-large w3-hover-black">Review</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="w3-half">
+            <ul class="w3-ul w3-light-grey w3-center">
+                <li class="w3-purple w3-xlarge w3-padding-32">Stretches/Goal Positions</li>
+                <li class="w3-padding-16">Accenture Leadership, Chicago IL</li>
+                <li class="w3-padding-16">Scrum Master, Ford Motors, Detroit MI</li>
+                <li class="w3-light-grey w3-padding-24">
+                    <button class="w3-button w3-purple w3-padding-large w3-hover-black">Review</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="w3-container" id="help" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-purple"><b>Help</b></h1>
+        <hr style="width:50px;border:5px solid purple" class="w3-round">
+        <p>Have an issue with MyScheduling 2.0?  Send us an email.</p>
+        <form action="/action_page.php" target="_blank">
+            <div class="w3-section">
+                <label>Name</label>
+                <input class="w3-input w3-border" type="text" name="Name" required>
+            </div>
+            <div class="w3-section">
+                <label>Email</label>
+                <input class="w3-input w3-border" type="text" name="Email" required>
+            </div>
+            <div class="w3-section">
+                <label>Message</label>
+                <input class="w3-input w3-border" type="text" name="Message" required>
+            </div>
+            <button type="submit" class="w3-button w3-block w3-padding-large w3-purple w3-margin-bottom">Send Message</button>
+        </form>
+    </div>
+
+    <!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Built by Katherine Johns, Selena Suarez, Drew DeHaven,
+    Shivika Aggarwal, Netra Pradhan, Adam Stroberg, Katherine Zingerman.
+    Built for Accenture Summer Analyst Hackathon.
+    Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</div>
+</body>
 </html>
